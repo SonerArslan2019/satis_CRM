@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- Burada ekstra CSS veya JavaScript bağlantıları olabilir -->
+</head>
+<body>
+<div class="container">
+    <h2>{{ title }}</h2>
+
+    <!-- Django mesajlarını göster -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Giriş formu -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Giriş Yap</button>
+    </form>
+
+    <!-- Burada ekstra içerik veya bağlantılar olabilir -->
+</div>
+</body>
+</html>

@@ -1,12 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Müşteri Listesi</title>
+</head>
+<body>
+<h1>Müşteri Listesi</h1>
 
+<!-- Arama Formu -->
+<form action="/arama-sonucu" method="get">
+    <input type="text" name="search" placeholder="Müşteri ara">
+    <button type="submit">Ara</button>
+</form>
 
-<h1>HOME PAGE - ANA SAYFA</h1>
+<!-- Müşteri Listesi -->
+<h2>Mevcut Müşteriler</h2>
+<ul>
+    <li>Müşteri 1</li>
+    <li>Müşteri 2</li>
+    <li>Müşteri 3</li>
+    <li>Müşteri 4</li>
+    <li>Müşteri 5</li>
+    <!-- Daha fazla müşteri eklenebilir -->
+</ul>
 <hr>
-<div>
-    <a href="{% url 'home:fatura_sayfasi' %}">FATURA SAYFASI......</a>
-    <a href="{% url 'home:kontaklar_sayfasi' %}">......KONTAKLAR SAYFASI......</a>
-    <a href="{% url 'home:teklif_sayfasi' %}">......TEKLIF SAYFASI</a>
-</div>
 
+<!-- Mevcut Müşteri ile yapilacaklar -->
+<button onclick="window.location.href='#'">Teklif Olustur --></button>
+<button onclick="window.location.href='#'">Fatura Olustur --></button>
+<button onclick="window.location.href='#'">Mevcut Kaydi Duzenle --></button>
+<button onclick="window.location.href='#'">Mevcut Kaydi Sil --></button>
+<hr>
+
+<!-- Yeni Müşteri Oluştur Butonu -->
+<button onclick="window.location.href='{% url 'home:yenimusteri_sayfasi' %}'">Yeni Musteri Kaydi Olustur --></button>
 <hr>
 <a href="{% url 'user:logout' %}">CIKIS YAPALIM</a>
+</body>
+</html>

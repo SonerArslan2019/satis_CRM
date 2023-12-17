@@ -26,9 +26,7 @@ INSTALLED_APPS = [
     # apps
     'user',
     'home',
-    'kontaklar',
-    'teklif',
-    'fatura',
+    'satis',
     # 3rd
 ]
 

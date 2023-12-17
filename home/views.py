@@ -15,8 +15,8 @@ def fatura_sayfasi(request):
     return render(request, "../templates/fatura_sayfasi.html")
 
 
-def kontaklar_sayfasi(request):
-    return render(request, "../templates/kontaklar_sayfasi.html")
+def yenimusteri_sayfasi(request):
+    return render(request, "../templates/yenimusteri_sayfasi.html")
 
 
 def teklif_sayfasi(request):

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Firma Formu</title>
+    <!-- Burada stil ve JavaScript dosyaları eklenebilir -->
+</head>
+<body>
+<h1>Firma Formu</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Kaydet</button>
+</form>
+
+<hr>
+<a href="{% url 'satis:musteri_listele' %}">MUSTERI LISTESI</a>
+<hr>
+<a href="{% url 'user:logout' %}">CIKIS YAPALIM</a>
+</body>
+</html>

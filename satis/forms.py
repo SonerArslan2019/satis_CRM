@@ -1,5 +1,5 @@
 from django import forms
-from .models import Firma
+from .models import Firma, Teklif, Fatura
 
 
 class FirmaForm(forms.ModelForm):
@@ -22,3 +22,15 @@ class FirmaForm(forms.ModelForm):
             'fax': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'})
         }
+
+
+class TeklifForm(forms.ModelForm):
+    class Meta:
+        model = Teklif
+        fields = ['teklif_adi', 'son_gecerlilik_tarihi', 'detaylar']
+
+
+class FaturaForm(forms.ModelForm):
+    class Meta:
+        model = Fatura
+        fields = ['fatura_adi', 'fatura_tarihi', 'odeme_tarihi', 'tutar', 'aciklama']

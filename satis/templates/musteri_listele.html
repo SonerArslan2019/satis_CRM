@@ -14,10 +14,11 @@
     <h4>MEVCUT MUSTERI LISTESI</h4>
 
     <form role="search">
-        <input  name="q" type="search" placeholder="Firma Ara" aria-label="Search"
+        <input name="q" type="search" placeholder="Firma Ara" aria-label="Search"
                value="{{ request.GET.q }}">
         <button title="Search" type="submit"></button>
-    </form><br>
+    </form>
+    <br>
     <hr>
     <table>
         <thead>
@@ -39,10 +40,10 @@
                 <td>{{ musteri.adres }}</td>
                 <td>{{ musteri.telefon_no }}</td>
                 <td>
-                    <a href="#">TEKLIF OLUSTUR</a> |
-                    <a href="#">FATURA OLUSTUR</a> |
-                    <a href="#">KAYIT DEGISTIR</a> |
-                    <a href="#">KAYIT SIL</a>
+                    <a href="{% url 'satis:teklif_olustur' musteri.id %}">TEKLIF OLUSTUR</a> |
+                    <a href="{% url 'satis:fatura_olustur' musteri.id %}">FATURA OLUSTUR</a> |
+                    <a href="{% url 'satis:kayit_degistir' musteri.id %}">KAYIT DEGISTIR</a> |
+                    <a href="{% url 'satis:kayit_sil' musteri.id %}">KAYIT SIL</a>
                 </td>
             </tr>
         {% empty %}

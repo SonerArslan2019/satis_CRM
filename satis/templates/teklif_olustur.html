@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teklif Oluştur</title>
+</head>
+<body>
+<h3>{{ firma.firma_adi }} için Teklif Oluştur</h3>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Teklif Oluştur</button>
+</form>
+<hr>
+<a href="{% url 'satis:musteri_listele' %}">MUSTERI LISTESI</a>
+<hr>
+</body>
+</html>

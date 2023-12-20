@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fatura Listesi</title>
+</head>
+<body>
+    <h1>Fatura Listesi</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fatura Adı</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fatura in faturalar %}
+            <tr>
+                <td>{{ fatura.fatura_adi }}</td>
+                <td>
+                    <a href="#">PDF Oluştur</a> |
+                    <a href="#">E-Posta Gönder</a> |
+                    <button onclick="window.print();">Yazdır</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<hr>
+<a href="{% url 'satis:musteri_listele' %}">MUSTERI LISTESI</a>
+<hr>
+</body>
+</html>

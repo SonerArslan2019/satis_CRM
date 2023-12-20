@@ -11,3 +11,26 @@ class Firma(models.Model):
 
     def __str__(self):
         return self.firma_adi
+
+
+class Teklif(models.Model):
+    firma = models.ForeignKey(Firma, on_delete=models.CASCADE, related_name='teklifler')
+    teklif_adi = models.CharField(max_length=200)
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True)
+    son_gecerlilik_tarihi = models.DateField()
+    detaylar = models.TextField()
+
+    def __str__(self):
+        return f"{self.teklif_adi} - {self.firma.firma_adi}"
+
+
+class Fatura(models.Model):
+    firma = models.ForeignKey(Firma, on_delete=models.CASCADE, related_name='faturalar')
+    fatura_adi = models.CharField(max_length=200)
+    fatura_tarihi = models.DateField(null=True, blank=True)
+    odeme_tarihi = models.DateField(null=True, blank=True)
+    tutar = models.DecimalField(max_digits=10, decimal_places=2)
+    aciklama = models.TextField()
+
+    def __str__(self):
+        return f"{self.fatura_adi} - {self.firma.firma_adi}"

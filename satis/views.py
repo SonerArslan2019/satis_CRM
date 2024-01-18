@@ -41,7 +41,7 @@ def musteri_listele(request):
     else:
         kayitlar = Firma.objects.all().order_by('-id')
     # pagination
-    paginator = Paginator(kayitlar, 7)
+    paginator = Paginator(kayitlar, 3)
     page = request.GET.get('page')
     kayitlar = paginator.get_page(page)
     context = {'kayitlar': kayitlar}
@@ -58,10 +58,10 @@ def teklif_olustur(request, firma_id):
             teklif.firma = firma
             teklif.save()
             messages.success(request, "Teklif başarıyla oluşturuldu.")
-            return redirect('satis:teklif_listesi')
+            return redirect('satis:teklif_listesi', firma_id=firma_id)
     else:
         form = TeklifForm()
-    return render(request, 'teklif_olustur.html', {'form': form, 'firma': firma})
+    return render(request, 'teklif_olustur.html', {'form': form, 'firma_id': firma_id})
 
 
 @login_required
@@ -103,9 +103,10 @@ def kayit_sil(request, id):
 
 
 @login_required
-def teklif_listesi(request):
-    teklifler = Teklif.objects.all().order_by('-olusturma_tarihi')
+def teklif_listesi(request, firma_id):
+    teklifler = Teklif.objects.filter(firma_id=firma_id).order_by('-olusturma_tarihi')
     return render(request, 'teklif_listesi.html', {'teklifler': teklifler})
+
 
 
 @login_required

@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from .models import Firma, Teklif, Fatura
 
 
@@ -22,6 +24,12 @@ class FirmaForm(forms.ModelForm):
             'fax': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'})
         }
+
+    def clean_firma_adi(self):
+        firma_adi = self.cleaned_data.get('firma_adi')
+        if Firma.objects.filter(firma_adi=firma_adi).exists():
+            raise ValidationError("Bu firma adı zaten kullanımda. Lütfen farklı bir isim deneyin.")
+        return firma_adi
 
 
 class TeklifForm(forms.ModelForm):

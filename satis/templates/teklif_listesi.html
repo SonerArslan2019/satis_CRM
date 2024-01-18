@@ -9,6 +9,7 @@
     <table>
         <thead>
             <tr>
+                <th>Firma Adı</th>
                 <th>Teklif Adı</th>
                 <th>İşlemler</th>
             </tr>
@@ -16,6 +17,7 @@
         <tbody>
             {% for teklif in teklifler %}
             <tr>
+                <td>{{ teklif.firma }}</td>
                 <td>{{ teklif.teklif_adi }}</td>
                 <td>
                     <a href="#">PDF Oluştur</a> |

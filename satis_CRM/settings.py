@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # apps
     'user',
-    'home',
     'satis',
     # 3rd
 ]

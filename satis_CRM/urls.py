@@ -4,8 +4,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-                  path('', include(("home.urls", "home"), namespace='home')),
                   path('user/', include(("user.urls", "user"), namespace='user')),
                   path('satis/', include(("satis.urls", "satis"), namespace='satis')),
+                  path('', include(("user.urls", "user"), namespace='user')),
                   path('admin/', admin.site.urls),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

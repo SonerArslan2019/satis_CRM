@@ -40,15 +40,15 @@
                 <td>{{ musteri.adres }}</td>
                 <td>{{ musteri.telefon_no }}</td>
                 <td>
-                    <a href="{% url 'satis:teklif_olustur' musteri.id %}">Yeni TEKLIF Olustur</a> |
+                    <a href="{% url 'satis:teklif_olustur' musteri.id %}">YENI TEKLIF OLUSTUR</a> |
                     {% if musteri.id %}
-                        <a href="{% url 'satis:teklif_listesi' firma_id=musteri.id %}">Mevcut TEKLIFI Goruntule</a>
+                        <a href="{% url 'satis:teklif_listesi' firma_id=musteri.id %}">MEVCUT TEKLIFI GORUNTULE</a>
                     {% else %}
                         <!-- Alternatif içerik veya bağlantı göster -->
                     {% endif %} |
-                    <a href="{% url 'satis:fatura_olustur' musteri.id %}">FATURA olustur</a> |
-                    <a href="{% url 'satis:kayit_degistir' musteri.id %}">KAYIT degistir</a> |
-                    <a href="{% url 'satis:kayit_sil' musteri.id %}">KAYIT sil</a>
+                    <a href="{% url 'satis:fatura_olustur' musteri.id %}">faturaOlustur</a> |
+                    <a href="{% url 'satis:kayit_degistir' musteri.id %}">kayitDegistir</a> |
+                    <a href="{% url 'satis:kayit_sil' musteri.id %}">kayitSil</a>
                 </td>
             </tr>
         {% empty %}

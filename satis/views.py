@@ -45,7 +45,7 @@ def musteri_listele(request):
     page = request.GET.get('page')
     kayitlar = paginator.get_page(page)
     context = {'kayitlar': kayitlar}
-    return render(request, "musteri_listele.html", context)
+    return render(request, "musteri_listele_son.html", context)
 
 
 @login_required

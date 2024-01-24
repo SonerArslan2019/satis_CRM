@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %}Müşteri Listele{% endblock title %}</title>
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/sidebars.css' %}">
+{% endblock extra_css %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <!-- Logo as a header and collapse button -->
+                <div class="sidebar-header">
+                    <img src="{% static 'img/metaxdoor_logo.png' %}" alt="" width="87" height="71" class="sidebar-logo">
+                </div>
+                <!-- Menu Items -->
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                           class="nav-link dropdown-toggle">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a class="nav-link" href="#">Subitem 1</a></li>
+                            <li><a class="nav-link" href="#">Subitem 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                           class="nav-link dropdown-toggle">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a class="nav-link" href="#">Dashboard 1</a></li>
+                            <li><a class="nav-link" href="#">Dashboard 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                           class="nav-link dropdown-toggle">
+                            <i class="fas fa-box-open"></i> Orders
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a class="nav-link" href="#">Orders 1</a></li>
+                            <li><a class="nav-link" href="#">Orders 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                           class="nav-link dropdown-toggle">
+                            <i class="fas fa-user"></i> Account
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a class="nav-link" href="#">Orders 1</a></li>
+                            <li><a class="nav-link" href="#">Orders 2</a></li>
+                        </ul>
+                    </li>
+                    <!-- Repeat for Dashboard, Orders, Account with their respective submenu IDs -->
+                    <!-- More menu items -->
+                </ul>
+            </nav>
+
+            <!-- Page Content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <!-- Your page content goes here -->
+            </main>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block extra_script %}
+    <script src="{% static 'js/sidebars.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sidebarLogo = document.querySelector('.sidebar-logo');
+            sidebarLogo.addEventListener('click', function () {
+                document.getElementById('sidebar').classList.toggle('collapsed');
+            });
+
+            // Bootstrap'ın collapse pluginini kullanarak alt menüler için işlevsellik
+            $('.nav-link.dropdown-toggle').click(function () {
+                $(this).next('.collapse').collapse('toggle');
+            });
+        });
+    </script>
+
+{% endblock extra_script %}

@@ -1,0 +1,17 @@
+.form-control-custom {
+    max-width: 19rem;
+}
+
+.btn-custom {
+    color: #198754; /* Bootstrap outline-success rengi */
+    border-color: #198754;
+    max-width: 9rem;
+
+    background-color: transparent; /* Arka planı transparan yap */
+}
+
+.btn-custom:hover {
+    color: #fff; /* Hover durumunda metin rengi beyaz */
+    background-color: #198754; /* Hover durumunda arka plan yeşil */
+    border-color: #198754;
+}

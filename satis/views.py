@@ -41,11 +41,11 @@ def musteri_listele(request):
     else:
         kayitlar = Firma.objects.all().order_by('-id')
     # pagination
-    paginator = Paginator(kayitlar, 10)
+    paginator = Paginator(kayitlar, 3)
     page = request.GET.get('page')
     kayitlar = paginator.get_page(page)
     context = {'kayitlar': kayitlar}
-    return render(request, "musteri_listele_son.html", context)
+    return render(request, "musteri_listele.html", context)
 
 
 @login_required

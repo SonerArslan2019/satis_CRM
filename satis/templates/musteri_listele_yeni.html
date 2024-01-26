@@ -73,18 +73,4 @@
 
 {% block extra_script %}
     <script src="{% static 'js/sidebars.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var sidebarLogo = document.querySelector('.sidebar-logo');
-            sidebarLogo.addEventListener('click', function () {
-                document.getElementById('sidebar').classList.toggle('collapsed');
-            });
-
-            // Bootstrap'ın collapse pluginini kullanarak alt menüler için işlevsellik
-            $('.nav-link.dropdown-toggle').click(function () {
-                $(this).next('.collapse').collapse('toggle');
-            });
-        });
-    </script>
-
 {% endblock extra_script %}

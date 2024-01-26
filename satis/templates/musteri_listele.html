@@ -1,91 +1,25 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>Firma Listesi</title>
-</head>
-<body>
-<br>
-<hr>
-<a href="{% url 'satis:yeni_musteri_olustur' %}">YENI MUSTERI OLUSTUR</a>
-<hr>
-<br>
-<div class="row">
-    <h4>MEVCUT MUSTERI LISTESI</h4>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-    <form role="search">
-        <input name="q" type="search" placeholder="Firma Ara" aria-label="Search"
-               value="{{ request.GET.q }}">
-        <button title="Search" type="submit"></button>
-    </form>
-    <br>
-    <hr>
-    <table>
-        <thead>
-        <tr align="left">
-            <th style="width: 2%;">ID</th>
-            <th style="width: 5%;">Firma Adi</th>
-            <th style="width: 5%;">Yetkili Adi</th>
-            <th style="width: 13%;">Adres</th>
-            <th style="width: 3%;">Telefon No</th>
-            <th align="left" style="width: 38%;">İşlemler</th>
-        </tr>
-        </thead>
-        <tbody style="font-size:14px;">
-        {% for musteri in kayitlar %}
-            <tr>
-                <td>{{ musteri.id }}</td>
-                <td>{{ musteri.firma_adi }}</td>
-                <td>{{ musteri.yetkili_adi }}</td>
-                <td>{{ musteri.adres }}</td>
-                <td>{{ musteri.telefon_no }}</td>
-                <td>
-                    <a href="{% url 'satis:teklif_olustur' musteri.id %}">YENI TEKLIF OLUSTUR</a> |
-                    {% if musteri.id %}
-                        <a href="{% url 'satis:teklif_listesi' firma_id=musteri.id %}">MEVCUT TEKLIFI GORUNTULE</a>
-                    {% else %}
-                        <!-- Alternatif içerik veya bağlantı göster -->
-                    {% endif %} |
-                    <a href="{% url 'satis:fatura_olustur' musteri.id %}">faturaOlustur</a> |
-                    <a href="{% url 'satis:kayit_degistir' musteri.id %}">kayitDegistir</a> |
-                    <a href="{% url 'satis:kayit_sil' musteri.id %}">kayitSil</a>
-                </td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td colspan="6" class="text-primary"><strong>Herhangi bir kayıt bulunamadı!</strong></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <!--- Pagination --->
-    <nav>
-        {% if kayitlar.has_other_pages %}
-            <ul class="pagination" style="list-style-type: none;">
-                {% if kayitlar.has_previous %}
-                    <li style="display: inline;"><a href="?page=1">Ilk Sayfa</a></li>
-                    <li style="display: inline;"><a href="?page={{ kayitlar.previous_page_number }}">Önceki</a></li>
-                {% endif %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/sidebar_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
-                {% for i in kayitlar.paginator.page_range %}
-                    {% if kayitlar.number == i %}
-                        <li style="display: inline;" class="active">{{ i }}</li>
-                    {% else %}
-                        <li style="display: inline;"><a href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
+{% block extra_script %}
+    <script src="{% static 'js/sidebars.js' %}"></script>
+{% endblock extra_script %}
+{% block title %}HOME - Giriş Sayfası{% endblock title %}
 
-                {% if kayitlar.has_next %}
-                    <li style="display: inline;"><a href="?page={{ kayitlar.next_page_number }}">Sonraki</a></li>
-                    <li style="display: inline;"><a href="?page={{ kayitlar.paginator.num_pages }}">Son Sayfa</a></li>
-                {% endif %}
-            </ul>
-        {% endif %}
-    </nav>
-</div>
-<br>
-<hr>
-<a href="{% url 'user:logout' %}">CIKIS YAPALIM</a>
-</body>
-</html>
+{% block body %}
+    <div class="wrapper">
+        {% include 'sidebar_menu.html' %}
+        <div class="main p-3">
+            <div class="text-center">
+                {% include 'deneme_musteri_listele.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
 

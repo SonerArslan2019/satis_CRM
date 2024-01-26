@@ -1,0 +1,49 @@
+/* sidebars.css */
+.container-fluid {
+    padding-top: 20px;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #f7f7f7;
+}
+
+.sidebar-header {
+    text-align: center; /* Logo'yu ortala */
+    margin: 10px 0; /* Logo için üst ve alt boşluk */
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    display: none; /* Bootstrap'ın varsayılan açılır menü okunu kaldır */
+}
+
+.sub-menu .nav-link {
+    padding-left: 30px; /* Alt menü maddeleri için içe doğru boşluk */
+}
+
+/* Submenu collapse animation */
+.collapse:not(.show) {
+    display: none;
+}
+
+.collapse.in {
+    display: block;
+}
+
+/* ... Diğer stilleriniz ... */

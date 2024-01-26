@@ -15,3 +15,40 @@
     background-color: #198754; /* Hover durumunda arka plan yeşil */
     border-color: #198754;
 }
+
+.pagination .page-item a.page-link {
+    color: green;
+}
+
+.pagination .page-item.active a.page-link {
+    background-color: #198754;
+    border-color: #198754;
+    color: white; /* Sayılar beyaz olacak */
+}
+
+
+/* Firma ara kisminda Düğme üzerine gelindiğinde rengini mavi yapar */
+.btn-outline-success:hover {
+    color: white;
+    background-color: rgb(2, 39, 91);
+    border-color: rgb(2, 39, 91);
+}
+
+/* İkona hover efekti ekler ve büyütür */
+.fa-lg:hover {
+    transform: scale(2); /* İkona hover efekti ile 1.2 kat büyütme */
+}
+
+/* İkonun üzerine gelindiğinde bağlantı metnini göster */
+.col-2 a .show-text {
+    display: none;
+}
+
+.col-2 a:hover .show-text {
+    display: inline;
+    color: #198754;
+    font-size: 17px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
